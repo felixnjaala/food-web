@@ -1,0 +1,48 @@
+{% extends "food/base.html"%}
+{% load static %}
+
+    {% block body %}
+    <form method="GET">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-11">
+                    <form class="card card-sm">
+                        <div class="card-body row no-gutter align-items-center">
+                            <div class="col">
+                                <input type="search" name="item_name" placeholder="Search for products" class="form-control form-control-borderless">
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-success" type="submit" >Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+    
+     {% for item in item_list %}
+     
+      
+          <div class="row">
+            <div class="col-md-3  offset-md-2">
+                <img class="card" height="130px" width="160px"  src="{{item.item_image}}"/>
+    
+            </div>
+            <div class="col-md-4">
+                <h3> {{ item.item_name }}</h3>
+                <h5>{{ item.item_desc }}</h5>
+                <h6>$ {{ item.item_price }}</h6>
+                <h6> {{ item.user_name }}</h6>
+            </div>
+            <div class="col-md-2">
+             <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+            </div>
+          </div>
+
+
+     {% endfor %}
+     {% endblock body %}
+    
+            

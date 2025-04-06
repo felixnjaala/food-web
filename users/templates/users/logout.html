@@ -1,0 +1,12 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <h1> you have been logged out</h1>
+ 
+</form>
+
+{% endblock body %}
